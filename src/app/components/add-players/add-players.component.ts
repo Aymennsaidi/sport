@@ -20,6 +20,7 @@ export class AddPlayersComponent implements OnInit {
   constructor(private playerService: PlayersService, private teamsService: TeamsService) { }
 
   ngOnInit(): void {
+    // Code with Localstorage
     // this.teamsTab = JSON.parse(localStorage.getItem('teams') || '[]');
     this.teamsService.getAllTeams().subscribe((res) => {
       this.teamsTab = res.teams;

@@ -42,6 +42,8 @@ const MIME_TYPE = {
     'image/jpeg': 'jpg',
     'image/jpg': 'jpg'
 }
+
+// Multer Storage
 const storage = multer.diskStorage({
     // destination
     destination: (req, file, cb) => {
@@ -425,8 +427,5 @@ app.post("/weather", (req, res) => {
         res.json({ apiRes: weatherResponse })
     })
 });
-
-
-
 
 module.exports = app; // make app exportable
