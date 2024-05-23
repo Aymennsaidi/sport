@@ -43,6 +43,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { WeatherComponent } from './components/weather/weather.component';
+import { TestComponent } from './components/test/test.component';
 
 
 @NgModule({
@@ -85,7 +86,8 @@ import { WeatherComponent } from './components/weather/weather.component';
     SearchTeamComponent,
     EditUserComponent,
     ProfileComponent,
-    WeatherComponent
+    WeatherComponent,
+    TestComponent
 
   ],
   imports: [
