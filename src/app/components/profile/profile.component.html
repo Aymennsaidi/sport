@@ -1,0 +1,86 @@
+<div class="hero overlay" style="background-image: url('assets/images/bg_3.jpg');">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-9 mx-auto text-center">
+                <h1 class="text-white">Edit Profile</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="site-section" style="margin-left: 30%;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+                <form [formGroup]="editProfile">
+                    <div class="form-group">
+                        <input type="text" formControlName="TEL" [(ngModel)]="decoded.tel" class="form-control"
+                            placeholder="TEL">
+                    </div>
+                    <div *ngIf="editProfile.controls['TEL'].invalid && 
+              (editProfile.controls['TEL'].touched ||
+               editProfile.controls['TEL'].dirty)">
+                        <div *ngIf="editProfile.controls['TEL'].errors?.['required']" class="red">
+                            Please enter mobile number
+                        </div>
+                        <div *ngIf="editProfile.controls['TEL'].errors?.['pattern']" class="red">
+                            Entered Mobile number less than 9 digit
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" formControlName="oldPassword" class="form-control"
+                            placeholder="old Password">
+                    </div>
+                    <div *ngIf="editProfile.controls['oldPassword'].invalid && 
+            (editProfile.controls['oldPassword'].touched ||
+             editProfile.controls['oldPassword'].dirty)">
+                        <div *ngIf="editProfile.controls['oldPassword'].errors?.['required']" class="red">
+                            old password is required
+                        </div>
+                        <div *ngIf="editProfile.controls['oldPassword'].errors?.['pattern']" class="red">
+                            <ul>
+                                <li> At least 8 characters in length,</li>
+                                <li>Lowercase letters,</li>
+                                <li>Uppercase letters,</li>
+                                <li>Numbers,</li>
+                                <li>Special characters</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" formControlName="newPassword" class="form-control"
+                            placeholder="new Password">
+                    </div>
+                    <div *ngIf="editProfile.controls['newPassword'].invalid && 
+            (editProfile.controls['newPassword'].touched ||
+             editProfile.controls['newPassword'].dirty)">
+                        <div *ngIf="editProfile.controls['newPassword'].errors?.['required']" class="red">
+                            new password is required
+                        </div>
+                        <div *ngIf="editProfile.controls['newPassword'].errors?.['pattern']" class="red">
+                            <ul>
+                                <li> At least 8 characters in length,</li>
+                                <li>Lowercase letters,</li>
+                                <li>Uppercase letters,</li>
+                                <li>Numbers,</li>
+                                <li>Special characters</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" formControlName="confirmPassword" class="form-control"
+                            placeholder="confirm Password">
+                    </div>
+                    <div *ngIf="mustMatch()&& 
+              (editProfile.controls['confirmPassword'].touched ||
+               editProfile.controls['confirmPassword'].dirty)">
+                        Confirm password not match 
+                    </div>
+                    <div class="text-success">{{message}}</div>
+                    <div class="form-group">
+                        <input type="submit" (click)="edit()" [disabled]="editProfile.invalid" class="btn btn-primary py-3 px-5" value="Edit Profile">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

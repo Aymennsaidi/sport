@@ -1,0 +1,38 @@
+<div class="hero overlay" style="background-image: url('assets/images/bg_3.jpg');">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-9 mx-auto text-center">
+                <h1 class="text-white">weather</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="site-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+                <form [formGroup]="searchForm">
+                    <div class="form-group">
+                        <input type="text" formControlName="city" class="form-control" placeholder="city">
+                    </div>
+                    <div *ngIf="searchForm.controls['city'].invalid && 
+                         (searchForm.controls['city'].touched ||
+                         searchForm.controls['city'].dirty)">
+                        <div *ngIf="searchForm.controls['city'].errors?.['required']" class="red">
+                            city name is required
+                        </div>
+                    </div>
+                    <div class="form-group,container">
+                        <input type="submit" (click)="search()" [disabled]="" class="btn btn-primary py-3 px-5" value="Search">
+                    </div>
+                </form>
+                <div>
+                    <p>{{apiResult.description}}</p>
+                    <p>{{apiResult.temp}}</p>
+                    <p>{{apiResult.humidity}}</p>
+                    <p>{{apiResult.pressure}}</p>
+                    <p>{{apiResult.speed}}</p>
+                </div>
+            </div>
+        </div>
+    </div>

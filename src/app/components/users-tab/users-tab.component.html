@@ -1,0 +1,26 @@
+<div class="widget-next-match">
+    <table class="table custom-table">
+        <thead>
+            <tr>
+                <!-- <th>ID</th> -->
+                <th>first name</th>
+                <th>last name</th>
+                <th>email</th>
+                <th>tel</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tr *ngFor="let user of usersTab">
+            <!-- <td>{{user._id}}</td> -->
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.TEL}}</td>
+            <td>
+                <button class="btn btn-info" style="margin-right: 2%;" (click)="displayUser(user._id)">display</button>
+                <button class="btn btn-danger" style="margin-right: 2%;" (click)="deleteUser(user._id)">Delete</button>
+
+            </td>
+        </tr>
+    </table>
+</div>

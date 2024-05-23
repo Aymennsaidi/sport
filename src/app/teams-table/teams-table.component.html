@@ -1,0 +1,29 @@
+<div class="widget-next-match">
+    <table class="table custom-table">
+        <thead>
+            <tr>
+                <th>name</th>
+                <th>owner</th>
+                <th>founder</th>
+                <th>Players</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let x of teamsTab">
+                <td>{{x.name}}</td>
+                <td>{{x.owner}}</td>
+                <td>{{x.founder}}</td>
+                <td><span *ngFor="let player of x.playersId">
+                        {{player.name}} : {{player.position}} <br>
+                    </span></td>
+                <td>
+                    <button class="btn btn-info" style="margin-right: 2%;" (click)="displayteam(x._id)">display</button>
+                    <button class="btn btn-warning" style="margin-right: 2%;" (click)="editTeam(x._id)">EDIT</button>
+                    <button class="btn btn-danger" (click)="deleteTeams(x._id)">Delete</button>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

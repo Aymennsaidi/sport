@@ -1,0 +1,61 @@
+<header class="site-navbar py-4" role="banner">
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icon-close2 js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <div class="container">
+        <div class="d-flex align-items-center">
+            <div class="site-logo">
+                <a href="index.html">
+                    <img src="assets/images//logo.png" alt="Logo">
+                </a>
+            </div>
+            <div class="ml-auto">
+                <nav class="site-navigation position-relative text-right" role="navigation">
+                    <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                        <li class="active"><a routerLink="" class="nav-link">Home</a></li>
+                        <li><a routerLink="matches" class="nav-link">Matches</a></li>
+                        <li><a routerLink="teams" class="nav-link">Teams</a></li>
+                        <li><a routerLink="players" class="nav-link">Players</a></li>
+                        <li><a routerLink="search" class="nav-link">Search</a></li>
+                        <li><a routerLink="searchTeam" class="nav-link">Search team</a></li>
+                        <li><a routerLink="weather" class="nav-link">search weather</a></li>
+                        <li *ngIf="isLoggedIn()&& user.role=='Admin'"><div class="btn-group">
+                            <button type="button" class="btn btn-secondary">Dashboard</button>
+                            <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
+                                id="dropdownMenuReference" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                data-reference="parent">
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
+                                <a class="dropdown-item" routerLink="Add-match">Add matchs</a>
+                                <a class="dropdown-item" routerLink="Add-Team">Add Teams</a>
+                                <a class="dropdown-item" routerLink="Add-players">Add players</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" routerLink="Admin">Admin</a>
+                            </div>
+                            <a href="#"
+                                class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right text-white"><span
+                                    class="icon-menu h3 text-white"></span></a>
+                        </div></li>
+                        <li *ngIf="!isLoggedIn()" ><button routerLink="connection" type="button" class="btn btn-secondary">Login</button></li>
+                        <li *ngIf="!isLoggedIn()" ><button routerLink="inscription" type="button" class="btn btn-secondary">signup</button></li>
+                        <li *ngIf="!isLoggedIn()" ><button routerLink="signupAdmin" type="button" class="btn btn-secondary">Signup Admin</button></li>
+                        <li *ngIf="isLoggedIn()" ><button type="button" class="btn btn-secondary" (click)="logout()">LOGOUT</button></li>
+                        <li *ngIf="isLoggedIn()">
+                           <a class="nav-link" routerLink="profile"> 
+                            {{user.firstName}}
+                            {{user.lastName}} </a>
+                            <img [src]="user.avatar" alt="" style="width: 50px;" class="rounded">
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+</header>
